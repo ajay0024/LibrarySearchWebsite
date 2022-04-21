@@ -290,11 +290,8 @@ input[type=text]:placeholder, input[type=email]:placeholder, input[type=password
   background-color: #383838;
 }
 
-.search-form{
-  display: flex;
 
-  vertical-align: middle;
-}
+
 h1{
   color: white;
 }
@@ -334,4 +331,7 @@ span.year{
 .flashes{
   color: #B20600;
   text-align: center;
+}
+.search-box{
+  padding:5px 0;
 }
