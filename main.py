@@ -10,15 +10,19 @@ from functools import wraps
 import os
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+app.config['SECRET_KEY'] = 'mySecretIsOpen'
+# app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 ##CONNECT TO DB
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 uri = os.environ.get("DATABASE_URL", "sqlite:///library.db")  # or other relevant config var
+print("MYDATABASE", uri)
 if uri.startswith("postgres://"):
+    print(uri)
     uri = uri.replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = uri
+# Following has been added as special case for Pythonanywhere
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://ajay24:v6bLKAqzEyjyHRx@ajay24.mysql.pythonanywhere-services.com/ajay24$library"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
