@@ -135,19 +135,20 @@ def search_book():
             filters["Year"] = request.args.get('year')
         if request.args.get('language') != "":
             filters["Language"] = request.args.get('language')
-        if len(request.args.get('title')) > 3:
-            title = request.args.get('title')
-            results = s.search_title_filtered(title, filters, exact_match=True)
+        if len(request.args.get('search-keyword')) > 3:
+            keyword = request.args.get('search-keyword')
+            # Search Title if title selected
+            if request.args.get('search-option') == 'title':
+                results = s.search_title_filtered(keyword, filters, exact_match=True)
+            # Search Author if author selected
+            elif request.args.get('search-option') == 'author':
+                results = s.search_author_filtered(keyword, filters, exact_match=True)
             for result in results:
                 result["links"] = s.resolve_download_links(result)
             js_str = json.dumps(results)
-        elif len(request.args.get('author')) > 3:
-            author = request.args.get('author')
-            results = s.search_author_filtered(author, filters, exact_match=True)
-            for result in results:
-                result["links"] = s.resolve_download_links(result)
-            js_str = json.dumps(results)
-        return js_str
+            return js_str
+        else:
+            return None
     return render_template("login.html")
 
 

@@ -18,17 +18,23 @@
       </h1>
       <div class="container-fluid">
         <div class="row">
-          <div class="fadeIn first col-12 col-md-4 col-lg search-box">
-            <input id="title" type="text" placeholder="Title" name="title"/>
+          <div class="fadeIn first col-12 col-md-4 col-lg-2 search-box">
+            <select id="search-option" name="search-option" class="fadeIn fourth search-option">
+              <option value="title">Search By Title</option>
+              <option value="author">Search By Author</option>
+            </select>
           </div>
+          <!-- <div class="fadeIn first col-12 col-md-4 col-lg search-box">
+            <input id="title" type="text" placeholder="Title" name="title" />
+          </div> -->
           <div class="fadeIn second col-12 col-md-4 col-lg search-box">
-            <input id="author" type="text" placeholder="Author" name="author"/>
+            <input id="search-keyword" type="text" placeholder="Title" name="search-keyword" />
           </div>
           <div class="fadeIn third col-12 col-md-4 col-lg search-box">
-            <input id="year" type="text" placeholder="2022" name="year"/>
+            <input id="year" type="text" placeholder="2022" name="year" />
           </div>
           <div class="fadeIn fourth col-12 col-md-4 col-lg search-box">
-            <input id="language" type="text" placeholder="English" name="language"/>
+            <input id="language" type="text" placeholder="English" name="language" />
           </div>
           <div class="fadeIn fifth col-12 col-md-4 col-lg search-box">
             <input type="button" name="" value="Search" id="search-book">
