@@ -133,8 +133,8 @@ def search_book():
         filters = {}
         if request.args.get('year') != "":
             filters["Year"] = request.args.get('year')
-        if request.args.get('language') != "":
-            filters["Language"] = request.args.get('language')
+        # if request.args.get('language') != "":
+        #     filters["Language"] = request.args.get('language')
         if len(request.args.get('search-keyword')) > 3:
             keyword = request.args.get('search-keyword')
             # Search Title if title selected

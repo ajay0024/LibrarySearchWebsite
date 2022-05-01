@@ -3,7 +3,8 @@ $(document).ready(function(dateOptions) {
   $("#search-book").click(function() {
     $("#result").empty()
     if (($("#search-keyword")[0].value).length > 3) {
-      link = "search_book?search-option=" + $("#search-option")[0].value + "&language=" + $("#language")[0].value + "&year=" + $("#year")[0].value + "&search-keyword=" + $("#search-keyword")[0].value
+      // + "&language=" + $("#language")[0].value 
+      link = "search_book?search-option=" + $("#search-option")[0].value + "&year=" + $("#year")[0].value + "&search-keyword=" + $("#search-keyword")[0].value
       $("#result").append("<img src='https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif' width='50px'/>")
       $.get(link, function(data) {
         $("#result img").remove();
